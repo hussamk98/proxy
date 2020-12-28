@@ -11,7 +11,7 @@ app.get('/', async (req, res, next) => {
 	let _res
 	try {
 		_res = await axios.get(url)
-		return res.status(200).send(_res)
+		res.status(200).send(_res.data)
 	} catch (error) {
 		return res
 			.status(500)
@@ -25,7 +25,7 @@ app.post('/', async (req, res, next) => {
 	let _res
 	try {
 		_res = await axios.post(url, data, { ...headers })
-		return res.status(200).send(_res)
+		return res.status(200).send(_res.data)
 	} catch (error) {
 		return res
 			.status(500)
@@ -38,7 +38,7 @@ app.put('/', async (req, res, next) => {
 	let _res
 	try {
 		_res = await axios.put(url, data, { ...headers })
-		return res.status(200).send(_res)
+		return res.status(200).send(_res.data)
 	} catch (error) {
 		return res
 			.status(500)
@@ -52,7 +52,7 @@ app.delete('/', async (req, res, next) => {
 	let _res
 	try {
 		_res = await axios.put(url)
-		return res.status(200).send(_res)
+		return res.status(200).send(_res.data)
 	} catch (error) {
 		return res
 			.status(500)
